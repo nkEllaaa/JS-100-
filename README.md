@@ -8,7 +8,7 @@ const nums = [100, 200, 300, 400, 500];
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-  nums.slice(0, -2);
+  return nums.slice(0, -2); //slice는 원본배열의 값을 변화시키지 않는다.
 ```
 <br>
 
