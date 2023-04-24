@@ -109,7 +109,7 @@ console.log(a+b);
 ```
 <br>
 
-## 7. 객체의 키 이름 중복
+## 8. 객체의 키 이름 중복
 💡 문제 : 자바스크립트 객체를 다음과 같이 만들었다. 출력값을 입력하시오. (출력값은 공백을 넣지 않습니다.)
 ```js
 var d = {
@@ -126,5 +126,39 @@ console.log(d['weight']);
 ```js
 84
 // weight에 78 -> 84로 재할당
+```
+<br>
+
+## 10. 객체의 키 이름 중복
+💡 문제 : 다음 소스 코드를 완성하여 날짜와 시간을 출력하시오.
+```js
+데이터
+var year = '2019';
+var month = '04';
+var day = '26';
+var hour = '11';
+var minute = '34';
+var second = '27';
+
+var result = //빈칸을 채워주세요
+
+console.log(result);
+
+
+출력
+2019/04/26 11:34:27
+```
+
+<strong>- 내가 푼 답</strong>
+```js
+const result = year.concat('/',month,'/',day,' ',hour,':',minute,':',second) 
+console.log(result);
+```
+```js
+const allData = [year,month,day,hour,minute,second]
+const date = allData.slice(0,3).join('/')
+const time = allData.slice(2, ).join(':')
+console.log(date + ' ' + time)
+// concat이 번거롭다고 느꼈는데 더 좋은(?) 방법은 없을까?
 ```
 <br>
