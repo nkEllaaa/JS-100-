@@ -179,7 +179,12 @@ console.log(date + ' ' + time)
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-    
+const n = prompt("정수를 입력하세요");
+const integer = parseInt(n);
+
+for (let i = 1; i <= integer; i++) {
+  console.log(' '.repeat(integer - i) + '*'.repeat(2 * i - 1));
+}
 ```
 <br>
 
