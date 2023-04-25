@@ -296,11 +296,11 @@ const planet = {
 
 const keysOfPlanet = Object.keys(planet);
 
-  const answer = keysOfPlanet.find((key) => planet[key] === n);
+const answer = keysOfPlanet.find((key) => planet[key] === n);
 
 console.log(answer);
-//planet[key]에서 key가 객체의 키가 아닌, find에서 넘겨주는 변수라고 생각하면 되는건지??
-//아무거나 다른것으로 바꿔도 됐었음
+//planet[key]에서 key가 객체의 키가 아닌, find에서 넘겨주는 변수
+//find : 배열을 순환하면서 조건을 만족하는 배열 요소의 값 또는 인덱스 반환
   ```
 <br>
   
