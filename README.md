@@ -346,3 +346,41 @@ const name = prompt("이름을 입력하세요")
 console.log(`안녕하세요. 저는 ${name} 입니다.`)
 ```
 <br>
+  
+  ## 16. 로꾸꺼
+💡 문제 : 문장이 입력되면 거꾸로 출력하는 프로그램을 만들어 봅시다.
+```js
+입출력
+
+입력 : 거꾸로
+출력 : 로꾸거
+```
+<strong>- 내가 푼 답</strong>
+```js
+const str = prompt('문장을 입력하세요.')
+const rts = str.split('').reverse().join('')
+console.log(rts)
+//문장을 배열로 전환
+//배열의 순서를 뒤집고
+//다시 문쟈열로 조인
+```
+ ```js
+const str = prompt('문장을 입력하세요.')
+let rts = ''
+for (let i = str.length; i>0; i--){
+   rts += str[i];
+  }
+console.log(rts)
+//i = str.length로 작성하니까 length와 인덱스의 차이 1 때문에 정의되지 않은 값이 들어가서 `undefined + 거꾸로 된 배열`이 출력됨
+//str.length-1로 수정
+//i>0 때문에 맨 앞이 짤림
+//i>=0 으로 수정
+  
+const str = prompt('문장을 입력하세요.')
+let rts = ''
+for (let i = str.length-1; i>=0; i--){
+   rts += str[i];
+  }
+console.log(rts)
+ ```
+<br>
