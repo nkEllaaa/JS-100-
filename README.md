@@ -300,7 +300,7 @@ const keysOfPlanet = Object.keys(planet);
 
 console.log(answer);
 //planet[key]에서 key가 객체의 키가 아닌, find에서 넘겨주는 변수라고 생각하면 되는건지??
-//아무거나 다른것으로 바꿔도 
+//아무거나 다른것으로 바꿔도 됐었음
   ```
 <br>
   
