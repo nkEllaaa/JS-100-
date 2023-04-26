@@ -415,3 +415,14 @@ for (let i = 0; i<inputs.length; i++) {
 console.log(Math.floor((sum/inputs.length)))
 ```
 <br>
+
+## 19. 제곱을 구하자
+💡 문제 : 공백으로 구분하여 두 숫자 a와 b가 주어지면, a의 b승을 구하는 프로그램을 작성하세요.
+
+<strong>- 내가 푼 답</strong>
+```js
+const input = (prompt('두 정수를 공백으로 구분하여 입력하세요 (예시 : 10 2)'));
+const toNum = input.split(' ');
+console.log(Math.pow(toNum[0], toNum[1]))
+```
+<br>
