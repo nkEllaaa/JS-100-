@@ -406,6 +406,12 @@ console.log(answer)
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-
+const input = prompt('여러 개의 입력값을 공백으로 구분하여 입력해주세요:');
+const inputs = input.split(' ');
+let sum = 0;
+for (let i = 0; i<inputs.length; i++) {
+  sum += Number(inputs[i])
+}
+console.log(Math.floor((sum/inputs.length)))
 ```
 <br>
