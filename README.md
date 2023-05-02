@@ -565,7 +565,13 @@ Yujin Hyewon
 <strong>- 내가 푼 답</strong>
 
 ```js
-
+const name = prompt('학생들의 이름을 공백으로 구분하여 입력하세요.').split(' ')
+const grade = prompt('점수를 이름의 순서에 맞게 공백으로 구분하여 입력하세요.').split(' ')
+let myObj = {}; 
+for(let i = 0; i < name.length; i++) {
+    myObj[name[i]] = parseInt(grade[i]);
+}
+console.log(myObj);
 ```
 <br>
 
@@ -611,15 +617,24 @@ const arr = [...a];
 <strong>- 내가 푼 답</strong>
 ```js
 const al = prompt('알파벳을 한 개 입력하세요.');
-
-if (al === al.toUpperCase()){
-  console.log('YES');
-} else {
-  console.log('NO');
-}
-```
-```js
-const al = prompt('알파벳을 한 개 입력하세요.');
 (al.charCodeAt(0) < 91 && al.charCodeAt(0) > 64) ? 'YES' : 'No' 
+```
+<br>
+
+## 30. 문자열 속 문자 찾기
+💡 문제 : 문자 pineapple에는 apple이라는 문자가 숨어 있습니다. 원범이는 이렇듯 문자열 속에 숨어있는 문자를 찾아보려고 합니다. 첫번째 입력에서는 문자열이 입력되고, 두번째에는 찾을 문자가 입력되어야 합니다. 그 문자가 시작하는 index를 반환하는 프로그램을 만들어 주세요
+<br>
+
+<strong>- 내가 푼 답</strong>
+```js
+const fullstr = prompt('문자열을 입력하세요');
+const str = prompt('찾을 문자를 입력하세요');
+
+console.log(fullstr.indexOf(str)); 
+//indexOf는 찾은 문자의 
+```
+	
+```js
+
 ```
 <br>
