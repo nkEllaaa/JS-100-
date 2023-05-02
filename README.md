@@ -545,4 +545,81 @@ const planets = {
 const name = prompt("행성의 이름을 입력하세요.");
 console.log(planets[name]);
 ```
+<br>
 
+ ## 27. 객체 만들기
+💡 문제 : 첫번째 입력에서는 학생의 이름이 공백으로 구분되어 입력되고, 두번째에는 그 학생의 수학 점수가 공백으로 구분되어 주어집니다. 두 개를 합쳐 학생의 이름이 key이고 value가 수학 점수인 객체를 출력해주세요.
+
+<br>
+<br>
+
+```js
+입력
+Yujin Hyewon
+70 100
+
+출력
+{'Yujin': 70, 'Hyewon': 100}
+```
+
+<strong>- 내가 푼 답</strong>
+
+```js
+
+```
+<br>
+
+
+ ## 28. 2-gram
+💡 문제 : 2-gram이란 문자열에서 2개의 연속된 요소를 출력하는 방법입니다. 예를 들어 'Javascript'를 2-gram으로 반복해 본다면 다음과 같은 결과가 나옵니다.
+
+<br>
+
+```js
+입력
+Javascript
+
+출력
+J a
+a v
+v a
+a s
+s c
+c r
+r i
+i p
+p t
+```
+<strong>- 내가 푼 답</strong>
+
+```js
+const a = prompt('문자를 입력하세요');
+const arr = [...a];
+    arr.forEach((e, index) => {
+  if (index < arr.length - 1) {
+    console.log(arr[index] + ' ' + arr[index + 1]);
+  }
+});
+```
+<br>
+
+## 29. 대문자만 지나가세요
+💡 문제 : 진구는 영어 학원 아르바이트를 하고 있습니다. 반 아이들은 알파벳을 공부하는 학생들인데 오늘은 대문자 쓰기 시험을 봤습니다. 알파벳 하나만을 입력하고 그 알파벳이 대문자이면 YES를 아니면 NO를 출력하는 프로그램을 만들어 주세요.
+
+<br>
+
+<strong>- 내가 푼 답</strong>
+```js
+const al = prompt('알파벳을 한 개 입력하세요.');
+
+if (al === al.toUpperCase()){
+  console.log('YES');
+} else {
+  console.log('NO');
+}
+```
+```js
+const al = prompt('알파벳을 한 개 입력하세요.');
+(al.charCodeAt(0) < 91 && al.charCodeAt(0) > 64) ? 'YES' : 'No' 
+```
+<br>
