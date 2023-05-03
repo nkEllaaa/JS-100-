@@ -767,6 +767,7 @@ console.log(a(10));
 console.log(b(10));
 console.log(c(10));
 ```
+	
 <strong>- 내가 푼 답</strong>
 ```js
 function one(n) {
@@ -784,11 +785,6 @@ const c = one(4);
 console.log(a(10));
 console.log(b(10));
 console.log(c(10));
-
-// console.log(a);
-// two(x) {
-    const myNum = Math.pow(x, n);
-    return myNum;
   }
 ```
 ```js
@@ -825,7 +821,7 @@ console.log(result);
 const input = parseInt(prompt('정수를 하나 입력하세요.'));
 
 const num = input;
-let result = [];
+let result = '';
 const cal = function (n) {
     for (let i = 1; i < 10; i++) {
         result += n * i + ' '
