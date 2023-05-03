@@ -728,8 +728,21 @@ input.reverse().join(' ')
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-const input = prompt('숫자를 공백으로 구분하여 입력하세요').split(' ');
-input.reverse().join(' ')
+const input = prompt('키를 공백으로 구분하여 입력하세요.').split(' ');
+const check = [...input].sort(function(a, b){
+    return a-b;
+});
+let result = 'YES';
+for (let i = 0; i < check.length; i++) {
+    if (check[i] !== input[i]) {
+        result = 'NO';
+        break;
+    }
+}
+console.log(result);
+// check에서 input.sort로 하니까 원본 배열에도 변화가 생김 -> spread 처리
+// input과 check는 배열이라 둘을 비교연산자로 비교하면 배열의 참조를 비교함. for문으로 요소를 하나하나 비교
+// 배열을 다 비교하면 효율이 떨어지니까 값이 다른 인덱스를 찾으면 result에 NO를 넣고 break
 ```
 
 <br>
