@@ -811,4 +811,32 @@ console.log(result);
 ```
 <br>
 
+## 36. 구구단 출력하기
+💡 문제 : 1~9까지의 숫자 중 하나를 입력하면 그 단의 구구단 결과를 한 줄에 출력하는 프로그램을 작성하세요.
+<br>
+```js
+입출력
+
+입력 : 2
+출력 : 2 4 6 8 10 12 14 16 18
+```
+<strong>- 내가 푼 답</strong>
+```js
+const input = parseInt(prompt('정수를 하나 입력하세요.'));
+
+const num = input;
+let result = [];
+const cal = function (n) {
+    for (let i = 1; i < 10; i++) {
+        result += n * i + ' '
+    }
+    return result.slice(0, -1)
+};   
+
+cal(num);
+// 마지막에도 공백이 생겨서 slice로 자름 
+// 왜 나는 작은 따옴표가 찍히는가...?
+```
+
+<br>
 
