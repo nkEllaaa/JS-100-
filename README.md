@@ -694,7 +694,7 @@ console.log(fullstr.length)
 <br>
 
 
-## 32. 거꾸로 출력하기
+## 33. 거꾸로 출력하기
 💡 문제 : 한 줄에 여러개의 숫자가 입력되면, 역순으로 그 숫자들을 하나씩 출력하는 프로그램을 작성하시오.
 <br>
 ```js
@@ -714,7 +714,7 @@ input.reverse().join(' ')
 
 <br>
 
-## 33. sort 구현하기
+## 34. sort 구현하기
 💡 문제 : 민주는 체육부장으로 체육시간이 되면 반 친구들이 제대로 키 순서대로 모였는지를 확인해야 한다. 그런데 요즘 민주는 그것이 너무 번거롭게 느껴져 한 번에 확인하고 싶어한다. 민주를 위해 키가 주어지면 순서대로 제대로 섰는지 확인하는 프로그램을 작성해보자. (키는 공백으로 구분하여 입력됩니다.)
 <br>
 ```js
@@ -745,6 +745,70 @@ console.log(result);
 // 배열을 다 비교하면 효율이 떨어지니까 값이 다른 인덱스를 찾으면 result에 NO를 넣고 break
 ```
 
+<br>
+
+
+## 35.  Factory 함수 사용하기
+💡 문제 : 2제곱, 3제곱, 4제곱을 할 수 있는 Factory 함수를 만들려고 합니다. <pass>에 코드를 작성하여 two함수를 완성하세요.
+<br>
+```js
+function one(n){
+    function two(){
+        //pass
+    }
+    return two;
+}
+
+const a = one(2);
+const b = one(3);
+const c = one(4);
+
+console.log(a(10));
+console.log(b(10));
+console.log(c(10));
+```
+<strong>- 내가 푼 답</strong>
+```js
+function one(n) {
+  function two(x) {
+    const myNum = Math.pow(x, n);
+    return myNum;
+  }
+  return two;
+}
+
+const a = one(2);
+const b = one(3);
+const c = one(4);
+
+console.log(a(10));
+console.log(b(10));
+console.log(c(10));
+
+// console.log(a);
+// two(x) {
+    const myNum = Math.pow(x, n);
+    return myNum;
+  }
+```
+```js
+const input = prompt('밑과 지수를 공백으로 구분하여 입력하세요').split(' ');
+
+const exponent = parseInt(input[0]);
+const index = parseInt(input[1]);
+let result = 1;
+const cal = function (e, index) {
+    for (let i = 0; i < index; i++) {
+        result *= e;
+    }
+    return result;
+};
+
+cal(exponent, index);
+console.log(result);
+			   
+// result를 0으로 초기화했을 때 원하는 값이 나오지 않아 1로 수정
+```
 <br>
 
 
