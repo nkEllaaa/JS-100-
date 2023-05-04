@@ -878,19 +878,16 @@ const removeDup = new Set(gradeToNum);
 
 let sortRemoveDup = [...removeDup];
 sortRemoveDup.sort((a, b) => a - b);
-
-const dupCount = sortRemoveDup.slice(0, -3).map(num => {
-  let count = 0;
+let count = 0;
+const dupCount = sortRemoveDup.slice(-3).map(num => {
   for (let i = 0; i < gradeToNum.length; i++) {
     if (gradeToNum[i] === num) {
       count++;
     }
   }
-  return count;
+  
 });
-console.log(dupCount);
-
-//틀림
+console.log(count);
 ```
 
 <br>
