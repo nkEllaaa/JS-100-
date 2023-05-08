@@ -616,8 +616,26 @@ const arr = [...a];
 
 <strong>- 내가 푼 답</strong>
 ```js
-const al = prompt('알파벳을 한 개 입력하세요.');
-(al.charCodeAt(0) < 91 && al.charCodeAt(0) > 64) ? 'YES' : 'No' 
+const input = prompt('영어 문자열 입력').split('');
+let changeInput = '';
+for (let i = 0; i < input.length; i++) {
+    let toASCII = input[i].charCodeAt();
+    if (toASCII !== 32) {
+        if (toASCII >= 65 && toASCII <= 90) {
+            changeInput += String.fromCharCode(toASCII + 32);
+        }
+        else if (toASCII >=97 && toASCII <= 122) {
+            changeInput += String.fromCharCode(toASCII - 32);
+        }
+    }
+    else {
+        changeInput += input[i];
+    }
+}
+console.log(changeInput);
+
+// 공백까지 처리해주기 위해 split(' ')으로 받고 hello를 입력했더니 for문이 길이를 1로 인식함
+// 단어마다 변환하기 위해서 split('')으로 수정
 ```
 <br>
 
@@ -831,7 +849,6 @@ const cal = function (n) {
 
 cal(num);
 // 마지막에도 공백이 생겨서 slice로 자름 
-// 왜 나는 작은 따옴표가 찍히는가...?
 ```
 
 <br>
@@ -981,33 +998,256 @@ console.log(count)
 
 <br>
 
+## 41. 소수판별
+💡 문제 : 숫자가 주어지면 소수인지 아닌지 판별하는 프로그램을 작성해주세요. 소수이면 YES로, 소수가 아니면 NO로 출력해주세요. (소수 : 1과 자기 자신만으로 나누어떨어지는 1보다 큰 양의 정수)
+<br>
+
+<strong>- 내가 푼 답</strong>
+```js
+const input = parseInt(prompt('2이상의 정수를 입력하세요'))
+if (input >= 2){ 
+    for(let i = 2; i < input; i++) {
+        if (input % i === 0) {
+            console.log('NO')
+            break;
+        }
+        else {
+            console.log('YES')
+        }
+    }
+}
+else {
+    console.log('2이상의 양의 정수를 입력해야 소수 판별이 가능')
+}
+
+// 2 이상으로 입력받았을때만 판별
+```
+<br>
+
+## 42. 2020년
+💡 문제 : 2020년 1월 1일은 수요일입니다. 2020년 a월 b일은 무슨 요일일까요?
+두 수 a, b를 입력받아 2020년 a월 b일이 무슨 요일인지 리턴하는 함수 solution을 완성하세요.
+요일의 이름은 일요일부터 토요일까지 각각 SUN, MON, TUE, WED, THU, FRI, SAT 입니다.
+
+예를 들어 a = 5, b = 24라면 5월 24일은 일요일이므로 문자열 "SUN"를 반환하세요.
+```js
+제한 조건
+2020년은 윤년입니다.
+2020년 a월 b일은 실제로 있는 날입니다. 
+(13월 26일이나 2월 45일 같은 날짜는 주어지지 않습니다.)
+```
+<strong>- 내가 푼 답</strong>
+```js
+const myDate = prompt('날짜를 입력하세요(형식 : 2023-05-08)');
+
+function solution(myDate) {
+  const week = {
+    0: 'SUN',
+    1: 'MON',
+    2: 'TUE',
+    3: 'WED',
+    4: 'THU',
+    5: 'FRI',
+    6: 'SAT'
+  }
+
+  const whatDay = week[new Date(myDate).getDay()];
+  return whatDay;
+}
+solution(myDate);
+
+// getDay()가 요일을 0~6으로 반환해주니까 week를 객체로 만들어서 key로 이용 
+```
+<br>
+
 ## 43. 10진수를 2진수로
 💡 문제 : 우리가 흔히 사용하는 숫자 1, 8, 19, 28893 등등...은 10진수 체계입니다. 이를 컴퓨터가 알아 들을 수 있는 2진수로 바꾸려고 합니다. 어떻게 해야할까요? 사용자에게 숫자를 입력받고 이를 2진수를 바꾸고 그 값을 출력해주세요.
 
 <strong>- 내가 푼 답</strong>
 ```js
 const input = parseInt(prompt('정수를 하나 입력하세요'));
-let b = parseInt(input/2);
-let c = parseInt(input%2)
-const d = [c];
+let q = parseInt(input/2);
+let r = parseInt(input%2)
+const result = [r];
 
-while (b >= 2) {
-  c = parseInt(b % 2)
-  b = parseInt(b / 2)
-  d.push(c)
+while (q >= 2) {
+  r = parseInt(q % 2) 
+  q = parseInt(q / 2)
+  result.push(r) 
 }
-d.push(b)
-console.log(d.reverse().join(''))
+result.push(q) 
+console.log(result.reverse().join(''))
 ```
 <br>
 
-## 1. 배열의 삭제
-💡 문제 : 다음 배열에서 400, 500를 삭제하는 code를 입력하세요.
+## 44. 각 자리수의 합
+💡 문제 : 사용자가 입력한 양의 정수의 각 자리수의 합을 구하는 프로그램을 만들어주세요 예를들어 18234 = 1+8+2+3+4 이고 정답은 18 입니다. 3849 = 3+8+4+9 이고 정답은 24입니다.
 ```js
-const nums = [100, 200, 300, 400, 500];
+입출력
+
+입력 : 18234
+출력 : 18
+
+입력 : 3849
+출력 : 24
 ```
 <strong>- 내가 푼 답</strong>
 ```js
-  return nums.slice(0, -2); //slice는 원본배열의 값을 변화시키지 않는다.
+ const input = prompt('정수입력').split('');
+ let save = 0;
+ for (let i = 0; i<input.length; i++){
+    save += parseInt(input[i]);
+}
+```
+
+<br>
+
+## 45. getTime()함수 사용하기
+💡 문제 : Date객체의 메소드 중 하나인 getTime()은 1970년 1월 1일 0시 0분 0초 이후로부터 지금까지 흐른 시간을 천분의 1초 단위(ms)로 반환합니다. 이를 이용하여 현재 연도(2023)를 출력해보세요.
+<br>
+<strong>- 내가 푼 답</strong>
+```js
+const date = new Date();
+const year = date.getTime();
+year = parseInt((year/(3600*24*365*1000))+1970)
+
+// 초단위 -> 년도 / (시 * 하루 * 1년 * 밀리초) : 1년의 밀리초값 + 1970(기준)
+// 2월 28일 윤년 대응 못함
+```
+```js
+const now = new Date();
+const curYear = now.getFullYear();
+console.log(curYear);
+```
+<br>
+
+## 46. 각 자리수의 합 2
+💡 문제 : 1부터 20까지의(20을 포함) 모든 숫자를 일렬로 놓고 모든 자릿수의 총 합을 구하세요. 예를 들어 10부터 15까지의 모든 숫자를 일렬로 놓으면 101112131415이고 각 자리의 숫자를 더하면 21입니다. (1+0+1+1+1+2+1+3+1+4+1+5 = 21)
+<br>
+
+<strong>- 내가 푼 답</strong>
+```js
+const input = prompt('시작과 끝낼 정수 두 개를 입력하세요').split(' ')
+let save = "";
+for (let i = input[0]; i<=input[1]; i++) {
+  save += i;
+}
+console.log(save)
+
+let sum = 0;
+for (let i = 0; i < save.length; i++) {
+  sum += parseInt(save[i]);
+}
+console.log(sum);
+```
+<br>
+
+## 47. set 자료형의 응용
+💡 문제 : 바울랩에서는 3월 29일 제주대학교에서 '제주 빅데이터 사회혁신 해커톤' 행사를 주최하게 되었습니다. 이에 구글 설문지를 배포하였으나 제주대학생들이 중복해서 n개씩 설문지를 제출하였습니다. 중복된 데이터들을 삭제하여 실제 접수 명단이 몇 명인지 알고 싶습니다. 아래 주어진 데이터들로부터 중복을 제거하여 실제 접수 인원을 출력해 주세요.
+
+```js
+const people = {
+  이호준: "01050442903",
+  이호상: "01051442904",
+  이준호: "01050342904",
+  이호준: "01050442903",
+  이준: "01050412904",
+  이호: "01050443904",
+  이호준: "01050442903"
+};
+```
+<strong>- 내가 푼 답</strong>
+```js
+const people = {
+  이호준: "01050442903",
+  이호상: "01051442904",
+  이준호: "01050342904",
+  이호준: "01050442903",
+  이준: "01050412904",
+  이호: "01050443904",
+  이호준: "01050442903"
+};
+const peopleToArr = new Set(Object.keys(people))
+console.log(peopleToArr.size)
+
+// 바로 new Set(people) : object is not iterable
+// length 쓰는데 안됨 -> Set 객체는 size 사용
+```
+<br>
+
+## 48. 대소문자 바꿔서 출력하기
+💡 문제 : 문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.
+```js
+입출력
+
+입력 : AAABBBcccddd
+출력 : aaabbbCCCDDD
+```
+<strong>- 내가 푼 답</strong>
+```js
+const input = prompt('영어 문자열 입력').split('');
+let changeInput = '';
+for (let i = 0; i < input.length; i++) {
+    let toASCII = input[i].charCodeAt();
+    if (toASCII !== 32) {
+        if (toASCII >= 65 && toASCII <= 90) {
+            changeInput += String.fromCharCode(toASCII + 32);
+        }
+        else if (toASCII >=97 && toASCII <= 122) {
+            changeInput += String.fromCharCode(toASCII - 32);
+        }
+    }
+    else {
+        changeInput += input[i];
+    }
+}
+console.log(changeInput);
+
+// 아스키코드로 공백과 공백이 아닌 것 1차 구분
+// fromCharCode : 아스키코드를 다시 문자열로 변환
+// 공백까지 처리해주기위해 split(' ')으로 했더니 hello같은 입력에서 for문이 1번만 도는 문제 발생
+// split('')으로 수정
+```
+<br>
+
+## 49. 최댓값 구하기
+💡 문제 : 순서가 없는 10개의 숫자가 공백으로 구분되어 주어진다. 주어진 숫자들 중 최댓값을 반환하라.
+```js
+입출력
+
+입력 : 10 9 8 7 6 5 4 3 2 1
+출력 : 10
+```
+<strong>- 내가 푼 답</strong>
+```js
+const input = prompt('정수 열 개를 공백으로 구분하여 입력').split(' ')
+for (let i = 0; i<input.length; i++){
+    input[i] = parseInt(input[i])
+}
+input.sort((a, b) => (a-b))
+```
+
+```js
+const input = prompt('정수 열 개를 공백으로 구분하여 입력').split(' ')
+input.sort((a, b) => (a-b))
+
+// 문자끼리 유니코드 비교
+// sort함수는 대부분의 경우 시간복잡도 O(n log n)으로 동작, 이는 merge sort와 quick sort 알고리즘을 기반으로 하기 때문
+
+이중 for문을 사용하여 정렬을 구현할 경우 시간복잡도는 O(n^2) 버블 정렬(bubble sort) 알고리즘이나 선택 정렬(selection sort) 알고리즘과 같은 간단한 정렬 알고리즘에서 사용
+
+따라서, 일반적으로 sort 함수를 사용하는 것이 이중 for문을 사용하여 정렬하는 것보다 효율적입니다. 그러나 정렬되지 않은 배열에서 두 개 이하의 요소를 정렬하는 경우에는 이중 for문이 더 빠름
+```
+
+<br>
+
+## ㅇㅇ. 템플릿
+💡 문제 : 
+```js
+ㅇㅇ
+```
+<strong>- 내가 푼 답</strong>
+```js
+ㅇㅇ
 ```
 <br>
