@@ -1078,6 +1078,7 @@ while (q >= 2) {
 result.push(q) 
 console.log(result.reverse().join(''))
 ```
+``ㅓㄴ
 <br>
 
 ## 44. 각 자리수의 합
